@@ -97,6 +97,24 @@ Example:
 END AS fit_for_recommendation
 
 
+# CAST
+Converts one data type to another
+
+
+Syntax:
+
+CAST(expression AS data_type)
+
+
+
+Example:
+
+SELECT first_name, last_name, CAST(birth_date AS DATE) AS formatted_birth_date
+
+FROM employees;
+
+
+
 # Change Case of String
 
 **LOWER CASE**
@@ -111,4 +129,65 @@ FROM table_name
 SELECT UPPER(column_name) 
 
 FROM table_name
+
+# CHECK
+Enforce a condition on a column or a set of columns in a table
+
+Example:
+
+CREATE  TABLE employees (
+
+    customer_id INT PRIMARY KEY,
+    
+    first_name VARCHAR(255) NOT NULL,
+    
+    last_name VARCHAR(255) NOT NULL,
+    
+    age INT,
+    
+CONSTRAINT chk_age CHECK (age BETWEEN 18 AND 60)
+
+);
+
+
+# DELETE
+delete one or more rows from a table
+
+Syntax: 
+
+DELETE FROM table
+
+WHERE row_id=1
+
+
+
+Example:
+
+DELETE FROM tableA
+
+USING tableB
+
+WHERE tableA.id=tableB.id
+
+
+
+**Delete all the rows from a table**
+
+DELETE FROM table
+
+
+# DROP
+delete database objects such as tables, views, indexes, or even entire databases
+
+Syntax:
+
+DROP TABLE table_name;
+
+**Check for existence to avoid error:**
+
+     ALTER TABLE table_name
+     
+    DROP COLUMN IF EXISTS column_name;
+
+
 
